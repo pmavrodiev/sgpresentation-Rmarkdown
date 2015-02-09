@@ -1,0 +1,189 @@
+\documentclass[$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}{\ \\[.3cm]
+\textbf{\color{c-bf}Notes:}\\%[0.1cm]
+{\footnotesize %\tiny
+\insertnote}}
+
+\setbeamertemplate{navigation symbols}{} % suppresses all navigation symbols:
+% \setbeamertemplate{navigation symbols}[horizontal] % Organizes the navigation symbols horizontally.
+% \setbeamertemplate{navigation symbols}[vertical] % Organizes the navigation symbols vertically.
+% \setbeamertemplate{navigation symbols}[only frame symbol] % Shows only the navigational symbol for navigating frames.
+
+%--------------------------------------------------------------------------------------------------------
+
+\usepackage{etex}
+
+$for(packages)$
+\usepackage{$packages$$sep$,$endfor$}
+
+%\setbeamertemplate{note page}[plain] 
+%\setbeameroption{notes on second screen}
+%\setbeameroption{hide notes}
+
+%NEEDED FOR RMARKDOWN
+\usepackage{framed}
+$if(shadecolor)$
+  \definecolor{shadecolor}{RGB}{$shadecolor$}
+$else$
+ \definecolor{shadecolor}{RGB}{248,248,248}
+$endif$
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textbf{{#1}}}
+\newcommand{\NormalTok}[1]{{#1}}
+
+% \makeatletter
+% \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+% \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+% \makeatother
+% % Scale images if necessary, so that they will not overflow the page
+% % margins by default, and it is still possible to overwrite the defaults
+% % using explicit options in \includegraphics[width, height, ...]{}
+% \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+%%%%%%
+
+\definecolor{cbf}{RGB}{199,100,95}%{163,15,0}
+\newcommand{\cbf}{\color{cbf}}
+
+\newcommand{\mean}[1]{\left\langle #1 \right\rangle}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+$if(date)$
+ \date{\$date$}
+$else$
+ \date{\today}
+$endif$
+$if(institute)$
+  \institute{$institute$}
+$else$
+  \institute{Chair of Systems Design}
+$endif$
+$if(homepage)$
+  \newcommand{\homepage}{$homepage$}
+$else$
+  \newcommand{\homepage}{www.sg.ethz.ch}
+$endif$
+$if(collaborators)$
+  \newcommand{\collaborators}{$collaborators$}
+$else$
+  \newcommand{\collaborators}{}
+$endif$
+$if(event)$
+  \newcommand{\event}{$event$}
+$else$
+  \newcommand{\event}{}
+$endif$
+$if(place)$
+  \newcommand{\place}{$place$}
+$else$
+  \newcommand{\place}{}
+$endif$
+$if(shorttitle)$
+  \newcommand{\shorttitle}{$shorttitle$}
+$else$
+  \newcommand{\shorttitle}{}
+$endif$
+
+$if(natbib)$
+\usepackage[$natbib_options$]{natbib}
+$endif$
+
+$if(biblatex)$
+  $if(biblatex_options)$
+   \usepackage[$biblatex_options$]{biblatex}
+  $else$
+   \usepackage[backend=bibtex]{biblatex}
+  $endif$
+  $if(bibliography_file)$
+    \bibliography{$bibliography_file$}
+  $endif$
+$endif$  
+
+
+\newcommand{\Prob}{\mathrm{Pr}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\nbin}[1]{\mathrm{nb}_\mathrm{in}(#1)}
+\newcommand{\nbout}[1]{\mathrm{nb}_\mathrm{out}(#1)}
+\newcommand{\one}{\mathbb{\bf 1}}
+
+\newcommand{\sref}[1]{SLIDE \ref{#1}}
+
+
+\begin{document}
+
+\frame{
+\maketitle
+}
+\note{}
+
+$if(toc)$
+\AtBeginSection[]{
+\frame<beamer>{
+  $if(toc_title)$
+    \frametitle{$toc_title$}
+  $else$
+    \frametitle{Contents}
+  $endif$
+  \tableofcontents[currentsection]
+}
+\note{}
+}
+$endif$
+%MAIN BODY
+$body$
+%END MAIN BODY
+
+%CONFIGURATION FOR REFERENCES
+$if(natbib)$
+\bibliographystyle{$bibliography_style$}
+$endif$
+
+$if(natbib)$
+  $if(bibliography_file)$
+    $if(biblio-title)$
+      $if(book-class)$
+        \renewcommand\bibname{$biblio-title$}
+      $else$
+        \renewcommand\refname{$biblio-title$}
+      $endif$
+    $endif$
+   \begin{frame}[allowframebreaks]{$biblio-title$}
+   \bibliography{$bibliography_file$}
+   \end{frame}
+  $endif$
+$endif$
+
+$if(biblatex)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\printbibliography[heading=none]
+\end{frame}
+$endif$
+%%%%%%
+
+
+\end{document}

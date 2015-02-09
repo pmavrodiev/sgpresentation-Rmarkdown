@@ -1,0 +1,29 @@
+* Summary
+This is a custom pandoc beamer template for the SG presentation style.
+Included is also a sample Rmarkdown presentation highlithing basic usage.
+
+* Logic
+The workflow is basically Rmarkdown->pandoc->latex->pdf.
+Hence an Rmarkdown documents gets translated by pandoc into a latex file, which is then compiled to the final pdf. 
+
+* Structure
+There are to main files, /SG_ETHclass.tex/ and /test-presentation.Rmd/.
+- /test-presentation.Rmd/ - the most important part of the presentation is its YAML header (this is the header enclosed by --- lines in the very beginning of the file).
+  The header gets processed by pandoc following the rules defined in /SG_ETHclass.tex/.
+  It is trivial to add new header keywords, e.g. custom shading colors - just ensure that the corresponding logic to handle them exists in /SG_ETHclass.tex/
+
+  For example the header keyword =title: My title= gets matched by the rule =if($title) \title{$title$}$endif$=.
+  The end result is that the =\title= command will be written into the latex target with an argument corresponding to the supplied value in the .Rmd source.
+  
+- /SG_ETHclass.tex/ contains the custom template.
+  It reads the class definitions from the YAML header in the .Rmd source and translates them into appropriate latex commands.
+  The template file can contain raw latex, which will simply be written as it is or pandoc rules that match the YAML header.
+
+  Note that including keywords into the YAML header for which no rules exist in the template is ok (the keywords will simply be ignored).
+
+  You can modify the template as you wish, either by adding more raw latex or by defining new rules.
+  In general, it is a good practice to define rules for entitities that change with each presentation, e.g. title, author, etc., and to fix raw latex code otherwise.
+  
+* Installation
+Put the custom template /SG_ETHclass.tex/ in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
+The location of /test-presentation.Rmd/ is irrelevant 

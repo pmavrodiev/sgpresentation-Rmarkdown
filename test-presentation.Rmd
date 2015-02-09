@@ -1,0 +1,108 @@
+---
+ #This is the basic setup of a presentation with
+ #the familiar keywords from the SG style file
+ documentclass: SG-ETHclass
+ classoption: first, firstup, Helv, navigation
+ title: Title of the talk
+ author: Pavlin Mavrodiev
+ homepage: www.sg.ethz.ch
+ institute: Chair of Systems Design
+ collaborators: Vahan Nanumyan, Ingo Scholtes, Antonios Garas
+ place: Zurich
+ shorttitle: SG Presentation with RMarkdown 
+ #specific packages needed for the presentation
+ packages: pst-pdf, pst-all, amsmath, amssymb, pifont, multimedia 
+ #Define the type of output -> pdf
+ output: 
+   beamer_presentation:    
+     #include table of content
+     toc: true
+     fig_caption: yes
+     keep_tex: yes
+     template: SG_ETHclass.tex
+     
+ #title of the TOC slide if included. Defaults to "Contents" if not supplied
+ toc_title: Agenga
+ #define bibliography package, options, style and file
+ natbib: yes
+ #options passed to the natbib package
+ natbib_options: square,numbers,sort,compress
+ bibliography_style: plainnat
+ bibliography_file: bibliography.bib
+ biblio-title: References
+---
+
+#Introduction
+
+## R Markdown {#introduction}
+
+- This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. 
+
+- You can also instert *inline* links and they look like [\color{blue} **this**](http://google.com )
+
+- When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## More R Markdown
+
+-- Here is a footnote [^1]. Here is a second one [^2]. Ok, and here is an inline note.^[Inline notes are easier to write, since you do not have to pick an identifier and move down to type the note.]
+
+-- See how block quotes look like, 
+
+> The true sign of intelligence is not knowlesge but imagination
+
+(Albert Einshtein)
+
+[^1]: Did you get how the footnotes work?
+[^2]: Really by now you should have got it.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+# More advanced stuff
+
+## Slide with R Code and Output
+
+```{r}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r, echo=FALSE,fig.width=4, fig.height=4}
+plot(cars)
+```
+
+## More info
+
+1. Refer to [**this link**](<http://rmarkdown.rstudio.com/beamer_presentation_format.html>) for more information on Rmarkdown syntax in beamer presentations
+
+2. Alternatively study the **SG_ETHclass.tex** file. It is simple enough so that you can get a pretty good idea how things work.
+
+----
+
+\begin{block}{Cool block}
+\begin{itemize}
+\item You can input raw latex code for finer control.
+\item For example, pandoc does not support markdown for the 'block' environment.
+\item So you must write this in plain latex.
+\end{itemize}
+\end{block}
+
+# Final words
+
+## Citaions
+
+- There are still some glitches with citations and the Rmarkdown beamer template. 
+
+- The easisest way to include citations is to use raw latex and then compile the   
+  resulting latex file.
+  
+- In RStudio, this is very easy. Simply open the latex file in a separate tab and press __Compile PDF__
+
+- Try it with this seminal publication \cite{mavrodiev2013}
+
+
+- Do not forget to compile the Rmd twice to get the citation resolved.
