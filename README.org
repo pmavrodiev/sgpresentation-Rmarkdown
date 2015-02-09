@@ -7,7 +7,7 @@ The workflow is basically Rmarkdown->pandoc->latex->pdf.
 Hence an Rmarkdown documents gets translated by pandoc into a latex file, which is then compiled to the final pdf. 
 
 * Structure
-There are to main files, /SG_ETHclass.tex/ and /test-presentation.Rmd/.
+There are two main files, /SG_ETHclass.tex/ and /test-presentation.Rmd/.
 - /test-presentation.Rmd/ - the most important part of the presentation is its YAML header (this is the header enclosed by --- lines in the very beginning of the file).
   The header gets processed by pandoc following the rules defined in /SG_ETHclass.tex/.
   It is trivial to add new header keywords, e.g. custom shading colors - just ensure that the corresponding logic to handle them exists in /SG_ETHclass.tex/
