@@ -25,5 +25,6 @@ There are two main files, /SG_ETHclass.tex/ and /test-presentation.Rmd/.
   In general, it is a good practice to define rules for entitities that change with each presentation, e.g. title, author, etc., and to fix raw latex code otherwise.
   
 * Installation
-Put the custom template /SG_ETHclass.tex/ in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
-The location of /test-presentation.Rmd/ is irrelevant 
+Put the custom template /SG_ETHclass.tex/ in a directory of your choice, preferrably in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
+Make sure to enter the full path to this template in the YAML header of /test-presentation.Rmd/.
+The location of /test-presentation.Rmd/ itself is irrelevant.
