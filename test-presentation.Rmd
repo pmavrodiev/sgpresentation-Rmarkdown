@@ -5,6 +5,7 @@
  classoption: first, firstup, Helv, navigation
  title: Title of the talk
  author: Pavlin Mavrodiev
+ date: 01.01.2014
  homepage: www.sg.ethz.ch
  institute: Chair of Systems Design
  collaborators: Vahan Nanumyan, Ingo Scholtes, Antonios Garas
@@ -19,8 +20,9 @@
      toc: true
      fig_caption: yes
      keep_tex: yes
-     template: SG_ETHclass.tex
-     
+     pandoc_args: [
+      "--template=/full/path/to/SG_ETHclass.tex"
+     ]     
  #title of the TOC slide if included. Defaults to "Contents" if not supplied
  toc_title: Agenga
  #define bibliography package, options, style and file
