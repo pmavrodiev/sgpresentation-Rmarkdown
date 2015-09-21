@@ -38,10 +38,32 @@ Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
     - This is item one
     - This is item two
   \\  
-  [endnote]
-  
+  [endnote]  
   #+END_QUOTE
-  
+
+  Note that =[beginnote]= and =[endnote]= should be separated by one empty line from the contents of the note page
+
+  Similarly to create a slide with two columns:
+
+    #+BEGIN_QUOTE
+    [begincolumns] \\
+
+    [column=0.5]
+
+      Some text in the first column with a code chunk
+    ```{r}
+      a<-1
+      b<-3
+      a+b
+    ```
+
+    [column=0.5]
+
+       More text in the second column
+
+    [endcolumns]\\
+  #+END_QUOTE
+
 * Installation
 Put the custom template /SG_ETHclass.tex/ in a directory of your choice, preferrably in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
 Make sure to enter the full path to this template in the YAML header of /test-presentation.Rmd/.
