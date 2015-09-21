@@ -59,7 +59,7 @@ Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
     [endcolumns]\\
   #+END_QUOTE
 
-  Again, the keywords enclosed by [] brackets should be separated by one line from the content.
+  Again, the keywords enclosed by =[]= brackets should be separated by one line from the content.
 
   
 * Installation
