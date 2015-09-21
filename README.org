@@ -8,7 +8,7 @@ For more information refer to the [[http://pandoc.org/][official documentation]]
 
 In our case the .Rmd file, which is in the RMarkdown format, is converted to a latex file by pandoc.
 The latter is then compiled to a pdf via pdflatex.
-Hence, the execution workflow is RMarkdown -> pandoc -> latex -> pdf
+Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
 
 * Structure
 - *test-presentation.Rmd* - the most important part of the presentation is its /YAML/ header (this is the header enclosed by --- lines in the very beginning of the file).
@@ -30,7 +30,7 @@ Hence, the execution workflow is RMarkdown -> pandoc -> latex -> pdf
 - *notefilter.py* - This is a custom Python filter that enables /note/ and /column/ environments in RMarkdown.
   To insert a note page in your presentation, use the following markdown syntax:
   
-  =[beginnote]=
+  > [beginnote]
 
   =The following list is part of a note page=
 
