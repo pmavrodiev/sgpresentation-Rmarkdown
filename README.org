@@ -50,12 +50,7 @@ Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
 
     [column=0.5]
 
-      Some text in the first column with a code chunk
-    ```{r}
-      a<-1
-      b<-3
-      a+b
-    ```
+      Some text in the first column
 
     [column=0.5]
 
@@ -64,7 +59,11 @@ Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
     [endcolumns]\\
   #+END_QUOTE
 
+  Again, the keywords enclosed by [] brackets should be separated by one line from the content.
+
+  
 * Installation
-Put the custom template /SG_ETHclass.tex/ in a directory of your choice, preferrably in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
+Save the custom template /SG_ETHclass.tex/ and the python filter /notefilter.py/ in a directory of your choice, preferrably in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
+
 Make sure to enter the full path to this template in the YAML header of /test-presentation.Rmd/.
 The location of /test-presentation.Rmd/ itself is irrelevant.
