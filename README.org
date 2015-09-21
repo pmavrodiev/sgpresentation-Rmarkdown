@@ -30,14 +30,14 @@ Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
 - *notefilter.py* - This is a custom Python filter that enables /note/ and /column/ environments in RMarkdown.
   To insert a note page in your presentation, use the following markdown syntax:
   
-  > [beginnote]
+  '[beginnote]'
 
-  =The following list is part of a note page=
+  The following list is part of a note page
 
-    =1. This is item one=
-    =2. This is item two=
+    1. This is item one
+    2. This is item two
        
-  =[endnote]=
+  [endnote]`
   
 * Installation
 Put the custom template /SG_ETHclass.tex/ in a directory of your choice, preferrably in =/usr/share/texmf/tex/latex/sg-ethbeamer/=.
