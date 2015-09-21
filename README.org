@@ -37,7 +37,8 @@ Hence, the execution workflow is RMarkdown >> pandoc >> latex >> pdf
 
     - This is item one
     - This is item two \\
-       
+  \\
+  
   [endnote]
   
   #+END_QUOTE
