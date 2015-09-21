@@ -1,6 +1,14 @@
+% This template file is created by Pavlin Mavrodiev
+% This file is edited by Corneel van der Pol, for note pages support
 \documentclass[$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
-\setbeameroption{hide notes}
+
+$if(setbeameroption)$
+  \setbeameroption{$setbeameroption$}
+$else$
+  \setbeameroption{hide notes}
+$endif$
+
 \setbeamertemplate{note page}{\ \\[.3cm]
 \textbf{\color{c-bf}Notes:}\\%[0.1cm]
 {\footnotesize %\tiny
@@ -106,6 +114,8 @@ $if(shorttitle)$
 $else$
   \newcommand{\shorttitle}{}
 $endif$
+
+
 
 $if(natbib)$
 \usepackage[$natbib_options$]{natbib}
