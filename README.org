@@ -3,8 +3,12 @@ This is a custom pandoc beamer template for the SG presentation style.
 Included is also a sample Rmarkdown presentation highlithing basic usage.
 
 * Logic
-The workflow is basically Rmarkdown->pandoc->latex->pdf.
-Hence an Rmarkdown documents gets translated by pandoc into a latex file, which is then compiled to the final pdf. 
+Pandoc is basically a tool to convert files from one markup to another.
+For more information refer to the \url{http://pandoc.org/}
+
+In our case the .Rmd file, which is in the RMarkdown format, is converted to a latex file by pandoc.
+The latter is then compiled to a pdf via pdflatex.
+Hence, the execution workflow is RMarkdown $\Rightarrow$ pandoc $\Rightarrow$ latex $\Rightarrow$ pdf
 
 * Structure
 There are two main files, /SG_ETHclass.tex/ and /test-presentation.Rmd/.
